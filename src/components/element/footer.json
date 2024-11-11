@@ -1,0 +1,57 @@
+{
+  "collectionName": "components_element_footers",
+  "info": {
+    "displayName": "Footer",
+    "icon": "filter",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "footerText": {
+      "type": "string"
+    },
+    "kapsysText": {
+      "type": "string"
+    },
+    "kapsysLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "kapsysLogoText": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "kapsysLogoLink": {
+      "type": "string"
+    },
+    "socials": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.socials"
+    },
+    "menuItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.menu-items"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": true,
+      "component": "element.button"
+    }
+  }
+}
