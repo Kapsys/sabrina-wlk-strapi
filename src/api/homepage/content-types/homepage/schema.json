@@ -24,6 +24,11 @@
       "type": "component",
       "repeatable": false,
       "component": "section.hero-mobile-section"
+    },
+    "exclusiveContentBlockMobileSection": {
+      "type": "component",
+      "repeatable": true,
+      "component": "section.exclusive-content-block-mobile-section"
     }
   }
 }

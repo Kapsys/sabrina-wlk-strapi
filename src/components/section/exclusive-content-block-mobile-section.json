@@ -1,0 +1,51 @@
+{
+  "collectionName": "components_section_exclusive_content_block_mobile_section_s",
+  "info": {
+    "displayName": "Exclusive Content Block Mobile Section ",
+    "icon": "paperPlane",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "overlayIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "overlayText": {
+      "type": "string"
+    },
+    "button": {
+      "displayName": "Button",
+      "type": "component",
+      "repeatable": true,
+      "component": "element.button"
+    },
+    "gallery": {
+      "displayName": "Gallery",
+      "type": "component",
+      "repeatable": true,
+      "component": "element.gallery"
+    }
+  }
+}
