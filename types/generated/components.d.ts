@@ -1,5 +1,39 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface SectionPartners extends Struct.ComponentSchema {
+  collectionName: 'components_section_partners';
+  info: {
+    displayName: 'Partners';
+    icon: 'star';
+  };
+  attributes: {
+    partnerLogo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    partnerLink: Schema.Attribute.String;
+  };
+}
+
+export interface SectionHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_section_hero_sections';
+  info: {
+    displayName: 'Hero Section';
+    icon: 'oneToMany';
+    description: '';
+  };
+  attributes: {
+    backgroundImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    name: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    button: Schema.Attribute.Component<'element.button', true>;
+    socials: Schema.Attribute.Component<'element.socials', true>;
+    partners: Schema.Attribute.Component<'section.partners', true>;
+  };
+}
+
 export interface SectionHeroMobileSection extends Struct.ComponentSchema {
   collectionName: 'components_section_hero_mobile_sections';
   info: {
@@ -139,6 +173,8 @@ export interface ElementButton extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'section.partners': SectionPartners;
+      'section.hero-section': SectionHeroSection;
       'section.hero-mobile-section': SectionHeroMobileSection;
       'section.exclusive-content-block-mobile-section': SectionExclusiveContentBlockMobileSection;
       'element.socials': ElementSocials;

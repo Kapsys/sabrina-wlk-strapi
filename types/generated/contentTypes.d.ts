@@ -52,6 +52,7 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       'section.exclusive-content-block-mobile-section',
       true
     >;
+    heroSection: Schema.Attribute.Component<'section.hero-section', true>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
