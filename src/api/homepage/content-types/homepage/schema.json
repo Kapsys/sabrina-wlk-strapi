@@ -35,6 +35,18 @@
       "type": "component",
       "repeatable": true,
       "component": "section.hero-section"
+    },
+    "brandsSection": {
+      "displayName": "Brands Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "section.brands-section"
+    },
+    "aboutSection": {
+      "displayName": "About Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "section.about-section"
     }
   }
 }

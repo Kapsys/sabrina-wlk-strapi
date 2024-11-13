@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_section_brands_sections",
+  "info": {
+    "displayName": "Brands Section",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "entrySection": {
+      "displayName": "Entry Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "section.entry-section"
+    },
+    "partners": {
+      "type": "component",
+      "repeatable": true,
+      "component": "section.partners"
+    }
+  }
+}

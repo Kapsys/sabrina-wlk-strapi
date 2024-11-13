@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_section_about_sections",
+  "info": {
+    "displayName": "About Section",
+    "icon": "discuss"
+  },
+  "options": {},
+  "attributes": {
+    "entrySection": {
+      "displayName": "Entry Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "section.entry-section"
+    },
+    "gallery": {
+      "displayName": "Gallery",
+      "type": "component",
+      "repeatable": true,
+      "component": "element.gallery"
+    }
+  }
+}

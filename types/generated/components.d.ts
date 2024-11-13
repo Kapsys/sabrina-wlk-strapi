@@ -72,6 +72,45 @@ export interface SectionExclusiveContentBlockMobileSection
   };
 }
 
+export interface SectionEntrySection extends Struct.ComponentSchema {
+  collectionName: 'components_section_entry_sections';
+  info: {
+    displayName: 'Entry Section';
+    icon: 'dashboard';
+    description: '';
+  };
+  attributes: {
+    subtitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    button: Schema.Attribute.Component<'element.button', true>;
+  };
+}
+
+export interface SectionBrandsSection extends Struct.ComponentSchema {
+  collectionName: 'components_section_brands_sections';
+  info: {
+    displayName: 'Brands Section';
+    description: '';
+  };
+  attributes: {
+    entrySection: Schema.Attribute.Component<'section.entry-section', false>;
+    partners: Schema.Attribute.Component<'section.partners', true>;
+  };
+}
+
+export interface SectionAboutSection extends Struct.ComponentSchema {
+  collectionName: 'components_section_about_sections';
+  info: {
+    displayName: 'About Section';
+    icon: 'discuss';
+  };
+  attributes: {
+    entrySection: Schema.Attribute.Component<'section.entry-section', false>;
+    gallery: Schema.Attribute.Component<'element.gallery', true>;
+  };
+}
+
 export interface ElementSocials extends Struct.ComponentSchema {
   collectionName: 'components_element_socials';
   info: {
@@ -177,6 +216,9 @@ declare module '@strapi/strapi' {
       'section.hero-section': SectionHeroSection;
       'section.hero-mobile-section': SectionHeroMobileSection;
       'section.exclusive-content-block-mobile-section': SectionExclusiveContentBlockMobileSection;
+      'section.entry-section': SectionEntrySection;
+      'section.brands-section': SectionBrandsSection;
+      'section.about-section': SectionAboutSection;
       'element.socials': ElementSocials;
       'element.menu-items': ElementMenuItems;
       'element.header': ElementHeader;
