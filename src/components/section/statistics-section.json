@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_section_statistics_sections",
+  "info": {
+    "displayName": "Statistics Section",
+    "icon": "gate",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "entrySection": {
+      "displayName": "Entry Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "section.entry-section"
+    },
+    "socialStatisticsBlock": {
+      "displayName": "Social Statistics Block ",
+      "type": "component",
+      "repeatable": true,
+      "component": "element.social-statistics-block"
+    }
+  }
+}

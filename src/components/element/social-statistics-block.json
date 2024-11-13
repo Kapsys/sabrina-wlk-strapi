@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_element_social_statistics_block_s",
+  "info": {
+    "displayName": "Social Statistics Block ",
+    "icon": "filter"
+  },
+  "options": {},
+  "attributes": {
+    "socials": {
+      "displayName": "Socials",
+      "type": "component",
+      "repeatable": false,
+      "component": "element.socials"
+    },
+    "number": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    },
+    "button": {
+      "displayName": "Button",
+      "type": "component",
+      "repeatable": false,
+      "component": "element.button"
+    }
+  }
+}

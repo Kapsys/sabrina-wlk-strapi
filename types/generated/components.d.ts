@@ -1,5 +1,21 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface SectionStatisticsSection extends Struct.ComponentSchema {
+  collectionName: 'components_section_statistics_sections';
+  info: {
+    displayName: 'Statistics Section';
+    icon: 'gate';
+    description: '';
+  };
+  attributes: {
+    entrySection: Schema.Attribute.Component<'section.entry-section', false>;
+    socialStatisticsBlock: Schema.Attribute.Component<
+      'element.social-statistics-block',
+      true
+    >;
+  };
+}
+
 export interface SectionPartners extends Struct.ComponentSchema {
   collectionName: 'components_section_partners';
   info: {
@@ -131,6 +147,20 @@ export interface ElementSocials extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementSocialStatisticsBlock extends Struct.ComponentSchema {
+  collectionName: 'components_element_social_statistics_block_s';
+  info: {
+    displayName: 'Social Statistics Block ';
+    icon: 'filter';
+  };
+  attributes: {
+    socials: Schema.Attribute.Component<'element.socials', false>;
+    number: Schema.Attribute.String;
+    text: Schema.Attribute.String;
+    button: Schema.Attribute.Component<'element.button', false>;
+  };
+}
+
 export interface ElementMenuItems extends Struct.ComponentSchema {
   collectionName: 'components_element_menu_items';
   info: {
@@ -212,6 +242,7 @@ export interface ElementButton extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'section.statistics-section': SectionStatisticsSection;
       'section.partners': SectionPartners;
       'section.hero-section': SectionHeroSection;
       'section.hero-mobile-section': SectionHeroMobileSection;
@@ -220,6 +251,7 @@ declare module '@strapi/strapi' {
       'section.brands-section': SectionBrandsSection;
       'section.about-section': SectionAboutSection;
       'element.socials': ElementSocials;
+      'element.social-statistics-block': ElementSocialStatisticsBlock;
       'element.menu-items': ElementMenuItems;
       'element.header': ElementHeader;
       'element.gallery': ElementGallery;
