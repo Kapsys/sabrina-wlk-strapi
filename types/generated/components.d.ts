@@ -44,6 +44,22 @@ export interface SectionOnlyfansSection extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionLascanaSection extends Struct.ComponentSchema {
+  collectionName: 'components_section_lascana_sections';
+  info: {
+    displayName: 'Lascana Section';
+    icon: 'collapse';
+  };
+  attributes: {
+    lascanaIcon: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    button: Schema.Attribute.Component<'element.button', true>;
+  };
+}
+
 export interface SectionHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_section_hero_sections';
   info: {
@@ -259,6 +275,7 @@ declare module '@strapi/strapi' {
       'section.statistics-section': SectionStatisticsSection;
       'section.partners': SectionPartners;
       'section.onlyfans-section': SectionOnlyfansSection;
+      'section.lascana-section': SectionLascanaSection;
       'section.hero-section': SectionHeroSection;
       'section.hero-mobile-section': SectionHeroMobileSection;
       'section.exclusive-content-block-mobile-section': SectionExclusiveContentBlockMobileSection;
