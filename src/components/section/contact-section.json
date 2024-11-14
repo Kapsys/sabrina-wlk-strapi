@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_section_contact_sections",
+  "info": {
+    "displayName": "Contact Section",
+    "icon": "expand",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "entrySection": {
+      "displayName": "Entry Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "section.entry-section"
+    },
+    "form": {
+      "displayName": "Form",
+      "type": "component",
+      "repeatable": false,
+      "component": "element.form"
+    }
+  }
+}

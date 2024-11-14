@@ -1,5 +1,40 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface SharedSeo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_seos';
+  info: {
+    displayName: 'Seo';
+    icon: 'cog';
+  };
+  attributes: {
+    metaTitle: Schema.Attribute.String;
+    metaDescription: Schema.Attribute.String;
+    metaImage: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    metaSocial: Schema.Attribute.Component<'shared.meta-social', true>;
+    keywords: Schema.Attribute.Text;
+    metaRobots: Schema.Attribute.String;
+    structuredData: Schema.Attribute.JSON;
+    metaViewport: Schema.Attribute.String;
+    canonicalURL: Schema.Attribute.String;
+  };
+}
+
+export interface SharedMetaSocial extends Struct.ComponentSchema {
+  collectionName: 'components_shared_meta_socials';
+  info: {
+    displayName: 'Meta Social';
+    icon: 'cursor';
+  };
+  attributes: {
+    socialNetwork: Schema.Attribute.Enumeration<['Twitter', 'Facebook']> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'> &
+      Schema.Attribute.Required;
+  };
+}
+
 export interface SectionStatisticsSection extends Struct.ComponentSchema {
   collectionName: 'components_section_statistics_sections';
   info: {
@@ -13,6 +48,18 @@ export interface SectionStatisticsSection extends Struct.ComponentSchema {
       'element.social-statistics-block',
       true
     >;
+  };
+}
+
+export interface SectionPodcastSection extends Struct.ComponentSchema {
+  collectionName: 'components_section_podcast_sections';
+  info: {
+    displayName: 'Podcast Section';
+    icon: 'layout';
+  };
+  attributes: {
+    entrySection: Schema.Attribute.Component<'section.entry-section', false>;
+    gallery: Schema.Attribute.Component<'element.gallery', true>;
   };
 }
 
@@ -57,6 +104,7 @@ export interface SectionLascanaSection extends Struct.ComponentSchema {
     title: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     button: Schema.Attribute.Component<'element.button', true>;
+    gallery: Schema.Attribute.Component<'element.gallery', true>;
   };
 }
 
@@ -130,6 +178,19 @@ export interface SectionEntrySection extends Struct.ComponentSchema {
     title: Schema.Attribute.String;
     description: Schema.Attribute.Text;
     button: Schema.Attribute.Component<'element.button', true>;
+  };
+}
+
+export interface SectionContactSection extends Struct.ComponentSchema {
+  collectionName: 'components_section_contact_sections';
+  info: {
+    displayName: 'Contact Section';
+    icon: 'expand';
+    description: '';
+  };
+  attributes: {
+    entrySection: Schema.Attribute.Component<'section.entry-section', false>;
+    form: Schema.Attribute.Component<'element.form', false>;
   };
 }
 
@@ -230,6 +291,35 @@ export interface ElementGallery extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementForm extends Struct.ComponentSchema {
+  collectionName: 'components_element_forms';
+  info: {
+    displayName: 'Form';
+    icon: 'filter';
+    description: '';
+  };
+  attributes: {
+    formInputs: Schema.Attribute.Component<'element.form-inputs', true>;
+    checkboxText: Schema.Attribute.String;
+    privacyPolicyText: Schema.Attribute.String;
+    privacyPolicyUrl: Schema.Attribute.String;
+    button: Schema.Attribute.Component<'element.button', false>;
+  };
+}
+
+export interface ElementFormInputs extends Struct.ComponentSchema {
+  collectionName: 'components_element_form_inputs';
+  info: {
+    displayName: 'Form Inputs';
+    icon: 'stack';
+  };
+  attributes: {
+    name: Schema.Attribute.String;
+    placeholder: Schema.Attribute.String;
+    type: Schema.Attribute.Enumeration<['text', 'phone', 'email', 'textarea']>;
+  };
+}
+
 export interface ElementFooter extends Struct.ComponentSchema {
   collectionName: 'components_element_footers';
   info: {
@@ -272,7 +362,10 @@ export interface ElementButton extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.seo': SharedSeo;
+      'shared.meta-social': SharedMetaSocial;
       'section.statistics-section': SectionStatisticsSection;
+      'section.podcast-section': SectionPodcastSection;
       'section.partners': SectionPartners;
       'section.onlyfans-section': SectionOnlyfansSection;
       'section.lascana-section': SectionLascanaSection;
@@ -280,6 +373,7 @@ declare module '@strapi/strapi' {
       'section.hero-mobile-section': SectionHeroMobileSection;
       'section.exclusive-content-block-mobile-section': SectionExclusiveContentBlockMobileSection;
       'section.entry-section': SectionEntrySection;
+      'section.contact-section': SectionContactSection;
       'section.brands-section': SectionBrandsSection;
       'section.about-section': SectionAboutSection;
       'element.socials': ElementSocials;
@@ -287,6 +381,8 @@ declare module '@strapi/strapi' {
       'element.menu-items': ElementMenuItems;
       'element.header': ElementHeader;
       'element.gallery': ElementGallery;
+      'element.form': ElementForm;
+      'element.form-inputs': ElementFormInputs;
       'element.footer': ElementFooter;
       'element.button': ElementButton;
     }

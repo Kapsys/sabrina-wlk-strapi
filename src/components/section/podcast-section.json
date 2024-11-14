@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_section_podcast_sections",
+  "info": {
+    "displayName": "Podcast Section",
+    "icon": "layout"
+  },
+  "options": {},
+  "attributes": {
+    "entrySection": {
+      "displayName": "Entry Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "section.entry-section"
+    },
+    "gallery": {
+      "displayName": "Gallery",
+      "type": "component",
+      "repeatable": true,
+      "component": "element.gallery"
+    }
+  }
+}
