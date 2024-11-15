@@ -495,6 +495,38 @@ export interface PluginUsersPermissionsUser
   };
 }
 
+export interface ApiErrorPageErrorPage extends Struct.SingleTypeSchema {
+  collectionName: 'error_pages';
+  info: {
+    singularName: 'error-page';
+    pluralName: 'error-pages';
+    displayName: 'Error Page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'title'>;
+    entrySection: Schema.Attribute.Component<'section.entry-section', false>;
+    gallery: Schema.Attribute.Component<'element.gallery', true>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::error-page.error-page'
+    > &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFormForm extends Struct.CollectionTypeSchema {
   collectionName: 'forms';
   info: {
@@ -586,10 +618,6 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
       'section.onlyfans-section',
       false
     >;
-    lascanaSection: Schema.Attribute.Component<
-      'section.lascana-section',
-      false
-    >;
     podcastSection: Schema.Attribute.Component<
       'section.podcast-section',
       false
@@ -610,6 +638,38 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::homepage.homepage'
+    > &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
+  collectionName: 'privacy_policies';
+  info: {
+    singularName: 'privacy-policy';
+    pluralName: 'privacy-policies';
+    displayName: 'Privacy Policy';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'title'>;
+    entrySection: Schema.Attribute.Component<'section.legals-section', false>;
+    legalsSection: Schema.Attribute.Component<'section.legals-section', true>;
+    seo: Schema.Attribute.Component<'shared.seo', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::privacy-policy.privacy-policy'
     > &
       Schema.Attribute.Private;
   };
@@ -997,9 +1057,11 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::error-page.error-page': ApiErrorPageErrorPage;
       'api::form.form': ApiFormForm;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::privacy-policy.privacy-policy': ApiPrivacyPolicyPrivacyPolicy;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;
       'admin::role': AdminRole;

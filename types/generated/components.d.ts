@@ -91,6 +91,25 @@ export interface SectionOnlyfansSection extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionLegalsSection extends Struct.ComponentSchema {
+  collectionName: 'components_section_legals_sections';
+  info: {
+    displayName: 'Legals Section';
+    icon: 'dashboard';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
+  };
+}
+
 export interface SectionLascanaSection extends Struct.ComponentSchema {
   collectionName: 'components_section_lascana_sections';
   info: {
@@ -368,6 +387,7 @@ declare module '@strapi/strapi' {
       'section.podcast-section': SectionPodcastSection;
       'section.partners': SectionPartners;
       'section.onlyfans-section': SectionOnlyfansSection;
+      'section.legals-section': SectionLegalsSection;
       'section.lascana-section': SectionLascanaSection;
       'section.hero-section': SectionHeroSection;
       'section.hero-mobile-section': SectionHeroMobileSection;

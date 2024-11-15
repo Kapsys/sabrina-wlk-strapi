@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_section_legals_sections",
+  "info": {
+    "displayName": "Legals Section",
+    "icon": "dashboard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "standard"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    }
+  }
+}

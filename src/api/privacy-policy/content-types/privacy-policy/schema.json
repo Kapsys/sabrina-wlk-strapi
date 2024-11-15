@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "privacy_policies",
+  "info": {
+    "singularName": "privacy-policy",
+    "pluralName": "privacy-policies",
+    "displayName": "Privacy Policy"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "entrySection": {
+      "displayName": "Entry Section",
+      "type": "component",
+      "repeatable": false,
+      "component": "section.legals-section"
+    },
+    "legalsSection": {
+      "displayName": "Legals Section",
+      "type": "component",
+      "repeatable": true,
+      "component": "section.legals-section"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.seo"
+    }
+  }
+}
