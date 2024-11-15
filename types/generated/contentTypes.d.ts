@@ -656,7 +656,7 @@ export interface ApiPrivacyPolicyPrivacyPolicy extends Struct.SingleTypeSchema {
   attributes: {
     title: Schema.Attribute.String;
     slug: Schema.Attribute.UID<'title'>;
-    entrySection: Schema.Attribute.Component<'section.legals-section', false>;
+    entrySection: Schema.Attribute.Component<'section.entry-section', false>;
     legalsSection: Schema.Attribute.Component<'section.legals-section', true>;
     seo: Schema.Attribute.Component<'shared.seo', false>;
     createdAt: Schema.Attribute.DateTime;
