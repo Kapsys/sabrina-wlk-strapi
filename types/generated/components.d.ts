@@ -143,7 +143,7 @@ export interface SectionHeroMobileSection extends Struct.ComponentSchema {
     verifiedTicket: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;
-    Tip: Schema.Attribute.String;
+    Tip: Schema.Attribute.Text;
     socials: Schema.Attribute.Component<'element.socials', true>;
   };
 }

@@ -33,7 +33,7 @@
       ]
     },
     "Tip": {
-      "type": "string"
+      "type": "text"
     },
     "socials": {
       "displayName": "Socials",
